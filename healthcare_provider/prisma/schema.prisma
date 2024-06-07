@@ -6,25 +6,66 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-model medical_history {
+model User {
+  id String @id @default(uuid())
+  name String
+  email String @unique
+  measurements Measurements[]
+  medications Medications[]
+}
+
+model Medical_history {
   history_id String @id @default(uuid())
   history_name String
   description String
+  diseases Disease[]
 }
 
-model disease {
+model Disease {
   disease_id String @id @default(uuid())
   disease_name String
   history_id String
-  history medical_history @relation(fields: [history_id], references: [history_id], onDelete: Restrict)
+  history Medical_history @relation(fields: [history_id], references: [history_id], onDelete: Restrict)
 }
 
-model measurements {
-  measurement_id String @id @defaul(uuid())
-  name String
-  owner_id 
+enum Measurement_type {
+  weight
+  blood_pressure_systolic
+  blood_pressure_diastolic
 }
+
+model Measurements {
+  measurement_id String @id @default(uuid())
+  name String @db.Text
+  owner_id String
+  measurement_type Measurement_type
+  measurement_value Int
+  measurement_unit String @db.Text
+  measured_on DateTime @default(now())
+  created_at DateTime @default(now())
+  owner User @relation(fields: [owner_id], references: [id], onDelete: Cascade)
+}
+
+enum Status {
+  Active
+  Discontinued
+  OnHold
+}
+
+model Medications {
+  medication_id String @id @default(uuid())
+  user_id String
+  medication_name String
+  status Status
+  dosage String
+  frequency String
+  prescribing_physician String
+  start_date DateTime
+  end_date DateTime 
+  user User @relation(fields: [user_id], references: [id], onDelete: Cascade)
+}
+
