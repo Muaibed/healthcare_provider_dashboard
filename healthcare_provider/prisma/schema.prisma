@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model medical_history {
+  history_id String @id @default(uuid())
+  history_name String
+  description String
+}
+
+model disease {
+  disease_id String @id @default(uuid())
+  disease_name String
+  history_id String
+  history medical_history @relation(fields: [history_id], references: [history_id], onDelete: Restrict)
+}
+
+model measurements {
+  measurement_id String @id @defaul(uuid())
+  name String
+  owner_id 
+}
