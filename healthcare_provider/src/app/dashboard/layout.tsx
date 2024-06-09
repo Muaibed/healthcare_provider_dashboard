@@ -1,6 +1,6 @@
 import { RoundedImage } from "@/components/RoundedImage"
 import { Sidebar, SidebarItem } from "@/components/Sidebar"
-import Image from "next/image"
+import { IoPerson } from "react-icons/io5";
 
 export const metadata = {
   title: 'Next.js',
@@ -12,16 +12,19 @@ export default function DashboardLayout({
 }: {
   children: React.ReactNode
 }) {
-  return ( <div className="flex gap-20">
-    <div className="flex-none">
+  return ( <div className="flex gap-10">
+    <div className="">
       <Sidebar>
-        <SidebarItem >
+        <div className="mt-10 mb-10" >
           <RoundedImage imagePath="/logo1.png" width={160} height={160} />
-        </SidebarItem>
-        <SidebarItem>Profile</SidebarItem>
+        </div>
+        <SidebarItem>
+        <IoPerson className="mr-4" />
+          Profile
+          </SidebarItem>
       </Sidebar>
     </div>
-      <div className="flex-grow">{children}</div>
+      <div className="flex mt-5">{children}</div>
   </div>
   )
 }

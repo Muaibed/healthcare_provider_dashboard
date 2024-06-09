@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={cn(
-        "bg-background-500 min-h-screen font-sans antialiased",
+        "bg-gray-100 min-h-screen font-sans antialiased",
         inter.variable          
     )}>
       {children}</body>
