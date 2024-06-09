@@ -43,6 +43,19 @@ export default function Dashboard() {
                         <TimeLine />
                     </div>
                 </div>
+            <div className="flex">
+                <div className="flex pt-3">
+                    <div className="w-96 h-[21rem] bg-white rounded mr-2">
+                    <div className="flex p-2">
+                            <div className="pl-5 pt-5">
+                                <RoundedImage imagePath="/logo1.png" width={40} height={40}/>
+                            </div>
+                        <div className="pl-5 pt-6 text-lg font-bold italic">Calendar</div>
+                    </div>
+                        <Calendar className="flex justify-center w-full"></Calendar>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <InfoCard />
