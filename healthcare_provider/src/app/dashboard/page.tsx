@@ -6,7 +6,7 @@ import { FaCaretDown } from "react-icons/fa6";
 import { HiMinus } from "react-icons/hi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
-import { Button } from "@/components/ui/button";
+import { Calendar } from "@/components/ui/calendar";
 
 
 export const dynamic = "force-dynamic"
@@ -31,99 +31,21 @@ export default function Dashboard() {
                 <DashboardCard width="w-30" height="h-20" title="92" subtitle="" body="Blood P"/>
             </div>
         </div>
-    </div>
-    <div className="flex pt-20 mt-20">
-        <div className="w-80 h-[48rem] bg-white rounded mr-4">
-            <div className="w-full pt-10">
-                <RoundedImage imagePath="/logo1.png" height={100} width={100} />
-                <h3 className="flex justify-center pt-5">[Name]</h3>
-            </div>
-            <div className="grid grid-cols-2 pt-10 ">
-                <div className="flex justify-center mb-10">
-                    <div>
-                        <div className="flex justify-center">
-                            [Gender]
+        <div className="flex">
+                <div className="flex pt-3">
+                    <div className="w-96 h-[42rem] rounded mr-2 bg-white">
+                        <div className="flex p-2">
+                            <div className="pl-5 pt-5">
+                                <RoundedImage imagePath="/logo1.png" width={40} height={40}/>
+                            </div>
+                            <div className="pl-5 pt-6 text-lg font-bold italic">TimeLine</div>
                         </div>
-                        <div className="text-gray-400">
-                        Gender
-                        </div>
+                        <TimeLine />
                     </div>
                 </div>
-                <div className="flex justify-center mb-10">
-                    <div>
-                        <div className="flex justify-center">
-                            [Age]
-                        </div>
-                        <div className="text-gray-400">
-                        Age
-                        </div>
-                    </div>
-                </div>
-                <div className="flex justify-center">
-                    <div>
-                        <div className="flex justify-center">
-                            [Address]
-                        </div>
-                        <div className="text-gray-400">
-                        Address
-                        </div>
-                    </div>
-                </div>
-                <div className="flex justify-center">
-                    <div>
-                        <div className="flex justify-center">
-                            [Job]
-                        </div>
-                        <div className="text-gray-400">
-                        Job
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div className="pt-10">
-                <div>
-                    <div className="font-bold pl-5 pb-3">
-                        Contact Information
-                    </div>
-                    <div className="flex pl-10">
-                        <FaPhoneAlt className="mr-5 text-gray-400"/>
-                        [Contact Info]
-                    </div>
-                    <div className="flex pl-10">
-                        <IoMail className="mr-5 text-gray-400"/>
-                        [Mail]
-                    </div>
-                </div>
-            </div>
-            <div className="pt-10">
-                <div>
-                    <div className="font-bold pl-5 pb-3">
-                        <div className="pb-2">
-                            Own Diagnosis
-                        </div>
-                    <div className="flex flex-wrap space-x-2">
-                        <div className="px-4 py-1 h-8 mb-1 bg-blue-100 text-blue-600 rounded-full">Influenza</div>
-                        <div className="px-4 py-1 h-8 mb-1 bg-blue-100 text-blue-600 rounded-full">Gastroenteritis</div>
-                        <div className="px-4 py-1 h-8 mb-1 bg-blue-100 text-blue-600 rounded-full">Eczema</div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-            <div className="pt-10">
-                <div>
-                    <div className="font-bold pl-5">
-                        <div className="pb-2">
-                            Health Barriers
-                        </div>
-                        <div className="flex space-x-2">
-                        <div className="px-4 py-1 h-8 mb-1 bg-red-100 text-red-600 rounded-full">Fear of Insulin</div>
-                        <div className="px-4 py-1 h-8 mb-1 bg-red-100 text-red-600 rounded-full">Fear of Insulin</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
+    <InfoCard />
   </TabsContent>
   <TabsContent value="MyPlans">My Plans</TabsContent>
 </Tabs>
@@ -171,4 +93,159 @@ function Indicator({prev, current}: {prev: number, current: number}) {
         <HiMinus className="text-gray-500 mt-1" />
         <p className="">0</p>
         </div>
+}
+
+function InfoCard() {
+    return ( 
+    <div className="flex pt-20 mt-20">
+    <div className="w-80 h-[48rem] bg-white rounded mr-4">
+        <div className="w-full pt-10">
+            <RoundedImage imagePath="/logo1.png" height={100} width={100} />
+            <h3 className="flex justify-center pt-5">[Name]</h3>
+        </div>
+        <div className="grid grid-cols-2 pt-10 ">
+            <div className="flex justify-center mb-10">
+                <div>
+                    <div className="flex justify-center">
+                        [Gender]
+                    </div>
+                    <div className="text-gray-400">
+                    Gender
+                    </div>
+                </div>
+            </div>
+            <div className="flex justify-center mb-10">
+                <div>
+                    <div className="flex justify-center">
+                        [Age]
+                    </div>
+                    <div className="text-gray-400">
+                    Age
+                    </div>
+                </div>
+            </div>
+            <div className="flex justify-center">
+                <div>
+                    <div className="flex justify-center">
+                        [Address]
+                    </div>
+                    <div className="text-gray-400">
+                    Address
+                    </div>
+                </div>
+            </div>
+            <div className="flex justify-center">
+                <div>
+                    <div className="flex justify-center">
+                        [Job]
+                    </div>
+                    <div className="text-gray-400">
+                    Job
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div className="pt-10">
+            <div>
+                <div className="font-bold pl-5 pb-3">
+                    Contact Information
+                </div>
+                <div className="flex pl-10">
+                    <FaPhoneAlt className="mr-5 text-gray-400"/>
+                    [Contact Info]
+                </div>
+                <div className="flex pl-10">
+                    <IoMail className="mr-5 text-gray-400"/>
+                    [Mail]
+                </div>
+            </div>
+        </div>
+        <div className="pt-10">
+            <div>
+                <div className="font-bold pl-5 pb-3">
+                    <div className="pb-2">
+                        Own Diagnosis
+                    </div>
+                <div className="flex flex-wrap space-x-2">
+                    <div className="px-4 py-1 h-8 mb-1 bg-blue-100 text-blue-600 rounded-full">Influenza</div>
+                    <div className="px-4 py-1 h-8 mb-1 bg-blue-100 text-blue-600 rounded-full">Gastroenteritis</div>
+                    <div className="px-4 py-1 h-8 mb-1 bg-blue-100 text-blue-600 rounded-full">Eczema</div>
+                </div>
+                </div>
+            </div>
+        </div>
+        <div className="pt-10">
+            <div>
+                <div className="font-bold pl-5">
+                    <div className="pb-2">
+                        Health Barriers
+                    </div>
+                    <div className="flex space-x-2">
+                    <div className="px-4 py-1 h-8 mb-1 bg-red-100 text-red-600 rounded-full">Fear of Insulin</div>
+                    <div className="px-4 py-1 h-8 mb-1 bg-red-100 text-red-600 rounded-full">Fear of Insulin</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    )
+}
+
+function TimeLine() {
+    return ( 
+      <div className="p-6 sm:p-10">
+        <div className="after:absolute after:inset-y-0 after:w-px after:bg-gray-500/20 relative pl-6 after:left-0 grid gap-10 dark:after:bg-gray-400/20">
+          <div className="grid gap-1 text-sm relative">
+            <div className="aspect-square w-3 bg-gray-900 rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1 dark:bg-gray-50" />
+            <div className="font-medium">March 14, 2024 - Pre diabetic</div>
+            <div className="text-gray-500 dark:text-gray-400">
+              Alc:10.4
+            </div>
+          </div>
+          <div className="grid gap-1 text-sm relative">
+            <div className="aspect-square w-3 bg-gray-900 rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1 dark:bg-gray-50" />
+            <div className="font-medium">March 14, 2024 - Pre diabetic</div>
+            <div className="text-gray-500 dark:text-gray-400">
+              Alc:10.4
+            </div>
+          </div>
+          <div className="grid gap-1 text-sm relative">
+            <div className="aspect-square w-3 bg-gray-900 rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1 dark:bg-gray-50" />
+            <div className="font-medium">March 14, 2024 - Pre diabetic</div>
+            <div className="text-gray-500 dark:text-gray-400">
+              Alc:10.4
+            </div>
+          </div>
+          <div className="grid gap-1 text-sm relative">
+            <div className="aspect-square w-3 bg-gray-900 rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1 dark:bg-gray-50" />
+            <div className="font-medium">March 14, 2024 - Pre diabetic</div>
+            <div className="text-gray-500 dark:text-gray-400">
+              Alc:10.4
+            </div>
+          </div>
+          <div className="grid gap-1 text-sm relative">
+            <div className="aspect-square w-3 bg-gray-900 rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1 dark:bg-gray-50" />
+            <div className="font-medium">March 14, 2024 - Pre diabetic</div>
+            <div className="text-gray-500 dark:text-gray-400">
+              Alc:10.4
+            </div>
+          </div>
+          <div className="grid gap-1 text-sm relative">
+            <div className="aspect-square w-3 bg-gray-900 rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1 dark:bg-gray-50" />
+            <div className="font-medium">March 14, 2024 - Pre diabetic</div>
+            <div className="text-gray-500 dark:text-gray-400">
+              Alc:10.4
+            </div>
+          </div>
+          <div className="grid gap-1 text-sm relative">
+            <div className="aspect-square w-3 bg-gray-900 rounded-full absolute left-0 translate-x-[-29.5px] z-10 top-1 dark:bg-gray-50" />
+            <div className="font-medium">March 14, 2024 - Pre diabetic</div>
+            <div className="text-gray-500 dark:text-gray-400">
+              Alc:10.4
+            </div>
+          </div>
+        </div>
+      </div>
+    )
 }

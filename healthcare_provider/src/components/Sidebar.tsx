@@ -3,7 +3,7 @@
 import { ReactNode } from "react";
 
 export function Sidebar({ children }: { children: ReactNode}) {
-    return <div className="bg-dark-blue w-64 h-screen p-4 ">{children}</div>   
+    return <div className="bg-dark-blue w-64 h-full p-4 ">{children}</div>   
 }
 
 export function SidebarItem({ children }: { children: ReactNode }) {
