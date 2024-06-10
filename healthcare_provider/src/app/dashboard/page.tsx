@@ -5,10 +5,12 @@ import { FaCaretUp } from "react-icons/fa6";
 import { FaCaretDown } from "react-icons/fa6";
 import { HiMinus } from "react-icons/hi";
 import { Calendar } from "@/components/ui/calendar";
-import { MedicationTable } from "@/components/MedicationTable";
 import { InfoCard } from "@/components/InfoCard";
-import { MedicalHistory } from "@/components/MedicationHistory";
 import { TimeLine } from "@/components/TimeLine";
+import { IndicatorCard } from "@/components/IndicatorCard";
+import { MedicalHistory } from "@/components/MedicationHistory";
+import { MedicationTable } from "@/components/MedicationTable";
+
 
 
 export const dynamic = "force-dynamic"
@@ -27,8 +29,8 @@ export default function Dashboard() {
         </TabsList>
         </div>
         <div className="flex">
-            <div className="grid grid-cols-4">
-                <DashboardCard width="w-30" height="h-20" title="92" subtitle="kg" body="weight" imagePath="/weight.png"/>
+            <div className="grid grid-cols-4">    
+                <IndicatorCard />            
                 <DashboardCard width="w-30" height="h-20" title="92" subtitle="" body="BMI" imagePath="/BMI.png"/>
                 <DashboardCard width="w-30" height="h-20" title="92" subtitle="cm" body="Height" imagePath="/height.png"/>
                 <DashboardCard width="w-30" height="h-20" title="92" subtitle="" body="Blood P" imagePath="/bloodpressure.png"/>
@@ -95,7 +97,7 @@ type DashboardCardProps = {
     imagePath: string
 }
 
-function DashboardCard({width, height, title, subtitle, body, imagePath}: DashboardCardProps) {
+export function DashboardCard({width, height, title, subtitle, body, imagePath}: DashboardCardProps) {
     return <Card className={`overflow-hidden ${width} ${height} flex mr-4`}>
         <div className="flex ml-4">
         <RoundedImage imagePath={imagePath} />
