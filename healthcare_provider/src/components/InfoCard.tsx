@@ -1,13 +1,14 @@
 import { IoMail } from "react-icons/io5";
 import { FaPhoneAlt } from "react-icons/fa";
-import { RoundedImage } from "./RoundedImage";
+import { AvatarComp, RoundedImage } from "./RoundedImage";
+import { Avatar, AvatarImage } from "./ui/avatar";
 
 export function InfoCard() {
     return ( 
     <div className="flex pt-20 mt-20">
-    <div className="w-80 h-[48rem] bg-white rounded mr-2">
+    <div className="w-80 h-[50rem] bg-white rounded mr-2">
         <div className="w-full pt-10">
-            <RoundedImage imagePath="/logo1.png" height={100} width={100} />
+            <AvatarComp width={128} height={128} imagePath="/avatarali.png"/>
             <h3 className="flex justify-center pt-5">[Name]</h3>
         </div>
         <div className="grid grid-cols-2 pt-10 ">

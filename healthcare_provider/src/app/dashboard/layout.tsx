@@ -1,5 +1,6 @@
-import { RoundedImage } from "@/components/RoundedImage"
+import { AvatarComp, RoundedImage } from "@/components/RoundedImage"
 import { Sidebar, SidebarItem } from "@/components/Sidebar"
+import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { IoPerson } from "react-icons/io5";
 
 export const metadata = {
@@ -15,8 +16,9 @@ export default function DashboardLayout({
   return ( <div className="flex gap-10">
     <div className="">
       <Sidebar>
-        <div className="mt-10 mb-10" >
-          <RoundedImage imagePath="/logo1.png" width={160} height={160} />
+        <div className="flex items-center mt-10 mb-10" >
+        <AvatarComp width={64} height={64} imagePath="/avatarferas.png"/>
+        <div className="pl-5 text-white">Feras Ali Alhazmi</div>
         </div>
         <SidebarItem>
         <IoPerson className="mr-4" />

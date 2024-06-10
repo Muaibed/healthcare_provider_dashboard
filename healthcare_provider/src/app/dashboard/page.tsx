@@ -28,18 +28,18 @@ export default function Dashboard() {
         </div>
         <div className="flex">
             <div className="grid grid-cols-4">
-                <DashboardCard width="w-30" height="h-20" title="92" subtitle="kg" body="weight"/>
-                <DashboardCard width="w-30" height="h-20" title="92" subtitle="" body="BMI"/>
-                <DashboardCard width="w-30" height="h-20" title="92" subtitle="cm" body="Height"/>
-                <DashboardCard width="w-30" height="h-20" title="92" subtitle="" body="Blood P"/>
+                <DashboardCard width="w-30" height="h-20" title="92" subtitle="kg" body="weight" imagePath="/weight.png"/>
+                <DashboardCard width="w-30" height="h-20" title="92" subtitle="" body="BMI" imagePath="/BMI.png"/>
+                <DashboardCard width="w-30" height="h-20" title="92" subtitle="cm" body="Height" imagePath="/height.png"/>
+                <DashboardCard width="w-30" height="h-20" title="92" subtitle="" body="Blood P" imagePath="/bloodpressure.png"/>
             </div>
         </div>
         <div className="flex">
                 <div className="flex pt-3 mr-2">
-                    <div className="w-96 h-[42.3rem] rounded mr-2 bg-white">
+                    <div className="w-96 h-[44.3rem] rounded mr-2 bg-white">
                         <div className="flex p-2">
                             <div className="pl-5 pt-5">
-                                <RoundedImage imagePath="/logo1.png" width={40} height={40}/>
+                                <RoundedImage imagePath="/timeline.png"/>
                             </div>
                             <div className="pl-5 pt-6 text-lg font-bold italic">TimeLine</div>
                         </div>
@@ -51,9 +51,9 @@ export default function Dashboard() {
                     <div className="w-96 h-[21rem] bg-white rounded mr-2">
                     <div className="flex p-2">
                             <div className="pl-5 pt-5">
-                                <RoundedImage imagePath="/logo1.png" width={40} height={40}/>
+                                <RoundedImage imagePath="/timeline.png"/>
                             </div>
-                        <div className="pl-5 pt-6 text-lg font-bold italic">Calendar</div>
+                        <div className="pl-5 pt-6 text-lg font-bold italic">TimeLine</div>
                     </div>
                         <Calendar className="flex justify-center w-full"></Calendar>
                     </div>
@@ -69,7 +69,7 @@ export default function Dashboard() {
                 <div className="w-full h-96 rounded mr-2 bg-white">
                     <div className="flex p-2">
                         <div className="pl-5 pt-5">
-                            <RoundedImage imagePath="/logo1.png" width={40} height={40}/>
+                            <RoundedImage imagePath="/medication.png"/>
                         </div>
                         <div className="pl-5 pt-6 text-lg font-bold italic">Medication</div>
                     </div>
@@ -92,12 +92,13 @@ type DashboardCardProps = {
     title: string
     subtitle: string
     body: string
+    imagePath: string
 }
 
-function DashboardCard({width, height, title, subtitle, body}: DashboardCardProps) {
+function DashboardCard({width, height, title, subtitle, body, imagePath}: DashboardCardProps) {
     return <Card className={`overflow-hidden ${width} ${height} flex mr-4`}>
         <div className="flex ml-4">
-        <RoundedImage imagePath="/logo1.png" width={50} height={50} />
+        <RoundedImage imagePath={imagePath} />
         </div>
         <div>
     <CardHeader className="flex flex-row mt-3.5 p-0 pl-4">
