@@ -7,6 +7,7 @@ import { HiMinus } from "react-icons/hi";
 import { FaPhoneAlt } from "react-icons/fa";
 import { IoMail } from "react-icons/io5";
 import { Calendar } from "@/components/ui/calendar";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 
 
 export const dynamic = "force-dynamic"
@@ -14,7 +15,8 @@ export const dynamic = "force-dynamic"
 export default function Dashboard() {
   return ( <> 
   <Tabs defaultValue="MyProfile">
-  <TabsContent value="MyProfile" className="flex">
+  <TabsContent value="MyProfile" className="">
+    <div className="flex">
   <div className="flex-3"> 
         <div className="pt-5 pb-10">
             <h1 className="text-4xl font-bold text-dark-blue mb-5">Hello, [NAME]</h1> 
@@ -32,8 +34,8 @@ export default function Dashboard() {
             </div>
         </div>
         <div className="flex">
-                <div className="flex pt-3">
-                    <div className="w-96 h-[42rem] rounded mr-2 bg-white">
+                <div className="flex pt-3 mr-2">
+                    <div className="w-96 h-[42.3rem] rounded mr-2 bg-white">
                         <div className="flex p-2">
                             <div className="pl-5 pt-5">
                                 <RoundedImage imagePath="/logo1.png" width={40} height={40}/>
@@ -60,6 +62,22 @@ export default function Dashboard() {
         </div>
     </div>
     <InfoCard />
+    </div>
+        <div>
+            <div className="flex pt-3">
+                <div className="w-full h-96 rounded mr-2 bg-white">
+                    <div className="flex p-2">
+                        <div className="pl-5 pt-5">
+                            <RoundedImage imagePath="/logo1.png" width={40} height={40}/>
+                        </div>
+                        <div className="pl-5 pt-6 text-lg font-bold italic">Medication</div>
+                    </div>
+                    <div className="pl-20 pr-20">
+                    <MedicationTable />
+                    </div>
+                </div>
+            </div>
+        </div>
   </TabsContent>
   <TabsContent value="MyPlans">My Plans</TabsContent>
 </Tabs>
@@ -112,7 +130,7 @@ function Indicator({prev, current}: {prev: number, current: number}) {
 function InfoCard() {
     return ( 
     <div className="flex pt-20 mt-20">
-    <div className="w-80 h-[48rem] bg-white rounded mr-4">
+    <div className="w-80 h-[48rem] bg-white rounded mr-2">
         <div className="w-full pt-10">
             <RoundedImage imagePath="/logo1.png" height={100} width={100} />
             <h3 className="flex justify-center pt-5">[Name]</h3>
@@ -302,10 +320,10 @@ function MedicalHistory() {
                     </div>
                 </div>
                 <div className="flex p-2">
-                    <div className="pl-5 pt-3">
+                    <div className="pl-5 pt-6">
                         <RoundedImage imagePath="/logo1.png" width={30} height={30}/>
                     </div>
-                    <div className="pt-3 pl-3">
+                    <div className="pt-6 pl-3 pb-6">
                         <div className="font-bold text-sm">Chronic Disease</div>
                         <div className="text-gray-300 text-[11px]">Diabetes, Hypertension, Asthma, Neurological Disorders</div>
                     </div>
@@ -314,7 +332,7 @@ function MedicalHistory() {
                     <div className="pl-5 pt-3">
                         <RoundedImage imagePath="/logo1.png" width={30} height={30}/>
                     </div>
-                    <div className="pt-3 pl-3">
+                    <div className="pt-3 pl-3 pb-6">
                         <div className="font-bold text-sm">Chronic Disease</div>
                         <div className="text-gray-300 text-[11px]">Diabetes, Hypertension, Asthma</div>
                     </div>
@@ -330,5 +348,132 @@ function MedicalHistory() {
                 </div>
             </div>
         </div>
+    )
+}
+
+function MedicationTable() {
+    return (
+        <Table>
+            <TableHeader>
+                <TableRow>
+                    <TableHead>Medication Name</TableHead>
+                    <TableHead>Status</TableHead>                   <TableHead>Dosage</TableHead>
+                    <TableHead>Frequency</TableHead>
+                    <TableHead>Prescribing Physician</TableHead>
+                    <TableHead>Start Date</TableHead>
+                    <TableHead>End Date</TableHead>
+                </TableRow>
+            </TableHeader>
+            <TableBody>
+                <TableRow>
+                    <TableCell className="bg-blue-600/[.06]">
+                        Medication Name
+                    </TableCell>
+                    <TableCell>
+                    <div className="px-4 py-1 bg-green-100 text-green-600">
+                        <div className="flex justify-center">
+                            Active
+                        </div>
+                    </div>
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        25 mg
+                    </TableCell>
+                    <TableCell>
+                        Once Daily
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        Dr. Johnson
+                    </TableCell>
+                    <TableCell>
+                        3/10/2024
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        -
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell className="bg-blue-600/[.06]">
+                        Medication Name
+                    </TableCell>
+                    <TableCell>
+                    <div className="px-4 py-1 bg-red-100 text-red-600">
+                        <div className="flex justify-center">
+                            Discontinued
+                        </div>
+                    </div>
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        25 mg
+                    </TableCell>
+                    <TableCell>
+                        Once Daily
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        Dr. Johnson
+                    </TableCell>
+                    <TableCell>
+                        3/10/2024
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        7/12/2024
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell className="bg-blue-600/[.06]">
+                        Medication Name
+                    </TableCell>
+                    <TableCell>
+                    <div className="px-4 py-1 bg-blue-100 text-blue-600">
+                        <div className="flex justify-center">
+                            On Hold
+                        </div>
+                    </div>
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        25 mg
+                    </TableCell>
+                    <TableCell>
+                        Once Daily
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        Dr. Johnson
+                    </TableCell>
+                    <TableCell>
+                        -
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        -
+                    </TableCell>
+                </TableRow>
+                <TableRow>
+                    <TableCell className="bg-blue-600/[.06]">
+                        Medication Name
+                    </TableCell>
+                    <TableCell>
+                    <div className="px-4 py-1 bg-green-100 text-green-600">
+                        <div className="flex justify-center">
+                            Active
+                        </div>
+                    </div>
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        25 mg
+                    </TableCell>
+                    <TableCell>
+                        Once Daily
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        Dr. Johnson
+                    </TableCell>
+                    <TableCell>
+                        3/10/2024
+                    </TableCell>
+                    <TableCell className="bg-blue-600/[.06]">
+                        -
+                    </TableCell>
+                </TableRow>
+            </TableBody>
+        </Table>
     )
 }
